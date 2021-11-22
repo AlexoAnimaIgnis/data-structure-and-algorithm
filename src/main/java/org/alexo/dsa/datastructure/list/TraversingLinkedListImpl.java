@@ -9,7 +9,7 @@ public class TraversingLinkedListImpl {
         ListNode ptr = head;
 
         while(ptr != null) {
-            System.out.println(ptr.value);
+            System.out.print(ptr.value + " ");
             ptr = ptr.next;
         }
     }
