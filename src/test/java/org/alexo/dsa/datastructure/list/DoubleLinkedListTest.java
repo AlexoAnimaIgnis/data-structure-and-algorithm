@@ -6,6 +6,7 @@ import org.junit.Test;
 public class DoubleLinkedListTest {
 
     private TraversingDoubleLinkedList traversingDoubleLinkedList;
+    private InsertDoubleLinkedList insertDoubleLinkedList;
     private DoubleListNode n1;
     private DoubleListNode n2;
     private DoubleListNode n3;
@@ -17,6 +18,7 @@ public class DoubleLinkedListTest {
     @Before
     public void setup() {
         traversingDoubleLinkedList = new TraversingDoubleLinkedList();
+        insertDoubleLinkedList = new InsertDoubleLinkedList();
         n1 = new DoubleListNode(1);
         n2 = new DoubleListNode(2);
         n3 = new DoubleListNode(3);
@@ -44,7 +46,7 @@ public class DoubleLinkedListTest {
     }
 
     @Test
-    public void traverseFromBeginningStartNode(){
+    public void traverseFromBeginningStartNode() {
 
         System.out.println("Traversing Doubly Linked List");
         traversingDoubleLinkedList.traverseFromBeginning(n1);
@@ -53,7 +55,7 @@ public class DoubleLinkedListTest {
     }
 
     @Test
-    public void traverseFromBeginningMiddleNode(){
+    public void traverseFromBeginningMiddleNode() {
 
         System.out.println("Traversing Doubly Linked List");
         traversingDoubleLinkedList.traverseFromBeginning(n4);
@@ -62,11 +64,35 @@ public class DoubleLinkedListTest {
     }
 
     @Test
-    public void traverseFromBeginningLastNode(){
+    public void traverseFromBeginningLastNode() {
 
         System.out.println("Traversing Doubly Linked List");
         traversingDoubleLinkedList.traverseFromBeginning(n6);
 
         System.out.println("End Traversing Doubly Linked List");
+    }
+
+    @Test
+    public void insertATBeginning() {
+        // Expecting 7 1 2 3 4 5 6
+        System.out.println("Inserting at beginning of DoublyLinkedList");
+        DoubleListNode node = insertDoubleLinkedList.insertAtBeginning(n4, 7);
+        traversingDoubleLinkedList.traverseFromBeginning(node);
+    }
+
+    @Test
+    public void insertATLast() {
+        // Expecting 1 2 3 4 5 6 7
+        System.out.println("Inserting at last of DoublyLinkedList");
+        DoubleListNode node = insertDoubleLinkedList.insertAtEnd(n4, 7);
+        traversingDoubleLinkedList.traverseFromBeginning(node);
+    }
+
+    @Test
+    public void insertAtMiddle() {
+        //expected: 1 2 3 7 4 5 6
+        System.out.println("Inserting at specified position of DoublyLinkedList");
+        DoubleListNode node = insertDoubleLinkedList.insertAtMiddle(n4, 7, 4);
+        traversingDoubleLinkedList.traverseFromBeginning(node);
     }
 }
