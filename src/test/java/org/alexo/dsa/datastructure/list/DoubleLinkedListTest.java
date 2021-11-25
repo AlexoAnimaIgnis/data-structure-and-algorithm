@@ -7,6 +7,7 @@ public class DoubleLinkedListTest {
 
     private TraversingDoubleLinkedList traversingDoubleLinkedList;
     private InsertDoubleLinkedList insertDoubleLinkedList;
+    private DeleteDoubleLinkedList deleteDoubleLinkedList;
     private DoubleListNode n1;
     private DoubleListNode n2;
     private DoubleListNode n3;
@@ -19,6 +20,7 @@ public class DoubleLinkedListTest {
     public void setup() {
         traversingDoubleLinkedList = new TraversingDoubleLinkedList();
         insertDoubleLinkedList = new InsertDoubleLinkedList();
+        deleteDoubleLinkedList = new DeleteDoubleLinkedList();
         n1 = new DoubleListNode(1);
         n2 = new DoubleListNode(2);
         n3 = new DoubleListNode(3);
@@ -93,6 +95,31 @@ public class DoubleLinkedListTest {
         //expected: 1 2 3 7 4 5 6
         System.out.println("Inserting at specified position of DoublyLinkedList");
         DoubleListNode node = insertDoubleLinkedList.insertAtMiddle(n4, 7, 4);
+        traversingDoubleLinkedList.traverseFromBeginning(node);
+    }
+
+
+    @Test
+    public void deleteATBeginning() {
+        // Expecting  2 3 4 5 6
+        System.out.println("Deleting at beginning of DoublyLinkedList");
+        DoubleListNode node = deleteDoubleLinkedList.deleteAtBeginning(n4);
+        traversingDoubleLinkedList.traverseFromBeginning(node);
+    }
+
+    @Test
+    public void deleteATLast() {
+        // Expecting 1 2 3 4 5
+        System.out.println("Deleting at Last of DoublyLinkedList");
+        DoubleListNode node = deleteDoubleLinkedList.deleteATLast(n4);
+        traversingDoubleLinkedList.traverseFromBeginning(node);
+    }
+
+    @Test
+    public void deleteATMiddle() {
+        //expected: 1 2 3 4 6
+        System.out.println("Delete at specified position of DoublyLinkedList");
+        DoubleListNode node = deleteDoubleLinkedList.deleteAtMiddle(n4, 4);
         traversingDoubleLinkedList.traverseFromBeginning(node);
     }
 }
