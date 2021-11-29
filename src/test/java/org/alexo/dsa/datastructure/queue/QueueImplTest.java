@@ -38,4 +38,16 @@ public class QueueImplTest {
         int result = queueImpl.dequeuePoll();
         Assert.assertEquals(1, result);
     }
+
+    @Test
+    public void testViewFromQueue() {
+        int result = queueImpl.getElement();
+        Assert.assertEquals(4, result);
+    }
+
+    @Test
+    public void testViewFromQueuePeek() {
+        int result = queueImpl.getElementPeek();
+        Assert.assertEquals(2, result);
+    }
 }

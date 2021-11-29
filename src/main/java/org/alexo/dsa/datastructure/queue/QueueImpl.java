@@ -67,4 +67,24 @@ public class QueueImpl {
 
         return queue.poll();
     }
+
+    public int getElement(){
+        Queue<Integer> queue = new ArrayDeque<>();
+        queue.add(4);
+        queue.add(5);
+        queue.add(1);
+        queue.add(2);
+        queue.add(3);
+
+        return queue.element();
+    }
+
+    public int getElementPeek(){
+        Queue<Integer> queue = new ArrayDeque<>();
+        queue.add(2);
+        queue.add(3);
+        queue.add(3);
+        queue.add(3);
+        return queue.peek();
+    }
 }
