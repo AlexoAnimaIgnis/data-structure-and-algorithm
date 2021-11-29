@@ -17,10 +17,25 @@ public class QueueImplTest {
 
     @Test
     public void testAddToQueue() {
-        Queue<Integer> result = queueImpl.addItemInQueue(8);
-        for(int i: result) {
-            System.out.println(i);
-        }
-        Assert.assertEquals(1, (int) result.peek());
+        boolean result = queueImpl.enqueue(8);
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void testAddToQueueOffer() {
+        boolean result = queueImpl.enqueueOffer(8);
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void testRemoveFromQueue() {
+        int result = queueImpl.dequeue();
+        Assert.assertEquals(1, result);
+    }
+
+    @Test
+    public void testRemoveFromQueuePoll() {
+        int result = queueImpl.dequeuePoll();
+        Assert.assertEquals(1, result);
     }
 }
