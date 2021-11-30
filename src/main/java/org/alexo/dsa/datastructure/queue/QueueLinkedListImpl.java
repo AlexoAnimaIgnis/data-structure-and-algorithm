@@ -18,6 +18,11 @@ public class QueueLinkedListImpl {
     private StackNode first = null;
     private StackNode last = null;
 
+    /**
+     * add item to the queue
+     * @param valueToAdd
+     * @return
+     */
     public StackNode enqueue(int valueToAdd) {
 
         StackNode newNode = new StackNode(valueToAdd);
@@ -32,11 +37,34 @@ public class QueueLinkedListImpl {
         return this.first;
     }
 
+    /**
+     * get first element without removing it
+     * @return
+     */
     public int peek() {
         if(this.first == null) {
             return -1;
         }
 
         return this.first.value;
+    }
+
+    /**
+     * remove first element
+     * @return
+     */
+    public int dequeue() {
+        if(this.first == null) {
+            return -1;
+        }
+
+        int toReturn = this.first.value;
+
+        // move pointer
+        this.first = this.first.next;
+        if(this.first == null) {
+            this.last = null;
+        }
+        return toReturn;
     }
 }
