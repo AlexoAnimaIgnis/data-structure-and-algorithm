@@ -23,4 +23,22 @@ public class QueueLinkedListImplTest {
         StackNode result = queueLinkedList.enqueue(6);
         Assert.assertNotNull(result);
     }
+
+    @Test
+    public void testCasePeek() {
+
+        queueLinkedList.enqueue(5);
+        queueLinkedList.enqueue(1);
+        queueLinkedList.enqueue(2);
+        queueLinkedList.enqueue(3);
+        queueLinkedList.enqueue(4);
+        StackNode result = queueLinkedList.enqueue(6);
+        Assert.assertNotNull(result);
+        Assert.assertEquals(5, queueLinkedList.peek());
+    }
+
+    @Test
+    public void testCasePeekNull() {
+        Assert.assertEquals(-1, queueLinkedList.peek());
+    }
 }

@@ -31,4 +31,12 @@ public class QueueLinkedListImpl {
 
         return this.first;
     }
+
+    public int peek() {
+        if(this.first == null) {
+            return -1;
+        }
+
+        return this.first.value;
+    }
 }
