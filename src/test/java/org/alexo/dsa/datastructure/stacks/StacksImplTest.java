@@ -29,4 +29,14 @@ public class StacksImplTest {
         stack.push(4);
         assertEquals(4, stacksImpl.pop(stack));
     }
+
+    @Test
+    public void testPeek() {
+        Stack<Integer> stack = new Stack<>();
+        stack.push(4);
+        stack.push(1);
+        stack.push(3);
+        stack.push(2);
+        assertEquals(2, stacksImpl.peek(stack));
+    }
 }

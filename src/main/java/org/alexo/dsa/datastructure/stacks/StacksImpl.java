@@ -20,4 +20,7 @@ public class StacksImpl {
         return stack.pop();
     }
 
+    public int peek(Stack<Integer> stack) {
+        return stack.peek();
+    }
 }
