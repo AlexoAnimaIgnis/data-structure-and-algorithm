@@ -16,4 +16,8 @@ public class StacksImpl {
         return stack.push(value);
     }
 
+    public int pop(Stack<Integer> stack) {
+        return stack.pop();
+    }
+
 }
