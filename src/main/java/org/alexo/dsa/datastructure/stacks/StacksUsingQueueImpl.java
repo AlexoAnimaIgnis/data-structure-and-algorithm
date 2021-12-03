@@ -14,6 +14,7 @@ public class StacksUsingQueueImpl {
 
     public boolean push(int value) {
         Queue<Integer> queue = new ArrayDeque<>();
+        queue.add(value);
         return queue.offer(value);
     }
 
@@ -27,5 +28,17 @@ public class StacksUsingQueueImpl {
             i++;
         }
         return queue.poll();
+    }
+
+    public int peek(Queue<Integer> queue) {
+        int i = 0;
+        if(queue.size() == 0){
+            return -1;
+        }
+        while(i < queue.size() - 1) {
+            queue.offer(queue.poll());
+            i++;
+        }
+        return queue.peek();
     }
 }

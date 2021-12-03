@@ -35,4 +35,31 @@ public class StacksUsingQueueImplTest {
         Assert.assertEquals(5, stacksUsingQueue.pop(queue));
         Assert.assertEquals(-1, stacksUsingQueue.pop(queue));
     }
+
+    @Test
+    public void peek() {
+        Queue<Integer> queue = new ArrayDeque<>();
+        queue.offer(5);
+        queue.offer(4);
+        queue.offer(3);
+        queue.offer(2);
+        queue.offer(1);
+        Assert.assertEquals(1, stacksUsingQueue.peek(queue));
+        Assert.assertEquals(1, stacksUsingQueue.peek(queue));
+    }
+
+    @Test
+    public void peekOne() {
+        Queue<Integer> queue = new ArrayDeque<>();
+        queue.offer(5);
+        queue.offer(4);
+        queue.offer(3);
+        Assert.assertEquals(3, stacksUsingQueue.peek(queue));
+    }
+
+    @Test
+    public void peekTwo() {
+        Queue<Integer> queue = new ArrayDeque<>();
+        Assert.assertEquals(-1, stacksUsingQueue.peek(queue));
+    }
 }
