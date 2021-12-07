@@ -25,4 +25,17 @@ public class StackUsingLinkedList {
         newTop.next = top;
         top = newTop;
     }
+
+    public int pop() {
+        if(top == null) {
+            return -1;
+        }
+
+        int res = top.value;
+
+        StackNode toRemove = top;
+        top = toRemove.next;
+        toRemove.next = null;
+        return res;
+    }
 }
