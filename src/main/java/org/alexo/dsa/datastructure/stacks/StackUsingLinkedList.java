@@ -7,7 +7,7 @@ import java.util.Queue;
 
 /**
  * Stack implementation using Queue(linkedlist)
- *
+ * <p>
  * push
  * pop
  * peek
@@ -27,7 +27,7 @@ public class StackUsingLinkedList {
     }
 
     public int pop() {
-        if(top == null) {
+        if (top == null) {
             return -1;
         }
 
@@ -37,5 +37,14 @@ public class StackUsingLinkedList {
         top = toRemove.next;
         toRemove.next = null;
         return res;
+    }
+
+
+    public int peek() {
+        if(top == null) {
+            return -1;
+        }
+
+        return top.value;
     }
 }

@@ -49,4 +49,23 @@ public class StackUsingLinkedListTest {
         int res2 = stackUsingLinkedList.pop();
         Assert.assertEquals(4, res2);
     }
+
+    @Test
+    public void testCasePeekEmpty() {
+        int res1 = stackUsingLinkedList.peek();
+        Assert.assertEquals(-1, res1);
+    }
+
+    @Test
+    public void testCasePeek() {
+        stackUsingLinkedList.push(1);
+        stackUsingLinkedList.push(2);
+        stackUsingLinkedList.push(3);
+        stackUsingLinkedList.push(4);
+        stackUsingLinkedList.push(5);
+        int res1 = stackUsingLinkedList.peek();
+        Assert.assertEquals(5, res1);
+        int res2 = stackUsingLinkedList.peek();
+        Assert.assertEquals(5, res2);
+    }
 }
