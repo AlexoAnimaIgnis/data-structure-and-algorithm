@@ -34,4 +34,10 @@ public class TreeTraversalsTest {
         // Expected: 3 5 7 10 20 30
         treeTraversals.inOrderTraversal(root);
     }
+
+    @Test
+    public void testPreorder() {
+        // Expected: 10 5 3 7 20 30
+        treeTraversals.preOrderTraversal(root);
+    }
 }

@@ -20,4 +20,13 @@ public class TreeTraversals {
         System.out.print(tree.value + "->");
         inOrderTraversal(tree.right);
     }
+
+    public void preOrderTraversal(TreeNode root) {
+        if(root == null) {
+            return;
+        }
+        System.out.print(root.value + "->");
+        preOrderTraversal(root.left);
+        preOrderTraversal(root.right);
+    }
 }
