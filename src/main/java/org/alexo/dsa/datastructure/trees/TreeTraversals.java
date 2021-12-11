@@ -29,4 +29,14 @@ public class TreeTraversals {
         preOrderTraversal(root.left);
         preOrderTraversal(root.right);
     }
+
+    public void postOrderTraversal(TreeNode root) {
+        if(root == null) {
+            return;
+        }
+
+        postOrderTraversal(root.left);
+        postOrderTraversal(root.right);
+        System.out.print(root.value + "->");
+    }
 }

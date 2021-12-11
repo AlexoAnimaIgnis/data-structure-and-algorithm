@@ -40,4 +40,10 @@ public class TreeTraversalsTest {
         // Expected: 10 5 3 7 20 30
         treeTraversals.preOrderTraversal(root);
     }
+
+    @Test
+    public void testPostrder() {
+        // Expected: 3 7 5 30 20 10
+        treeTraversals.postOrderTraversal(root);
+    }
 }
