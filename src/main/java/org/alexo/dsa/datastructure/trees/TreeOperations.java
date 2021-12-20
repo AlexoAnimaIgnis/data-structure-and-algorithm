@@ -10,13 +10,10 @@ package org.alexo.dsa.datastructure.trees;
  * 6. Node findMax(Node node)
  * 7. boolean contains(T elem)
  * 8. int height(Node node)
- *
  */
-public class TreeOperations<T extends Comparable<T>>{
+public class TreeOperations<T extends Comparable<T>> {
 
     private int nodeCount = 0;
-
-    private TreeNode root = null;
 
     public int size() {
         return nodeCount;
@@ -24,5 +21,25 @@ public class TreeOperations<T extends Comparable<T>>{
 
     public boolean isEmpty() {
         return size() == 0;
+    }
+
+    // recursive method to find element in a BST
+    public boolean contains(BSTNode<T> node, T elem) {
+
+        // This is the base case
+        if (node == null) {
+            return false;
+        }
+        // returns negative if less than, 0 if equals, positive integer if greater than
+        int comparator = elem.compareTo(node.data);
+
+        // recurse left subtree
+        if (comparator < 0) {
+            return contains(node.left, elem);
+        } else if (comparator > 0) {
+            return contains(node.right, elem);
+        } else {
+            return true;
+        }
     }
 }
