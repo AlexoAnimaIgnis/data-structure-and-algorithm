@@ -42,4 +42,41 @@ public class TreeOperations<T extends Comparable<T>> {
             return true;
         }
     }
+
+    public boolean insertNode(BSTNode root, T elem) {
+        // if value is existing, do not add
+        if (contains(root, elem)) {
+            return false;
+        } else {
+            BSTNode node = insert(root, elem);
+            this.nodeCount++;
+            return true;
+        }
+    }
+
+    private BSTNode insert(BSTNode<T> node, T elem) {
+        // base case: node is null
+        if(node == null) {
+            node = new BSTNode(elem);
+        } else {
+            // choose which subtree
+            if(elem.compareTo(node.data) < 0) {
+                node.left = insert(node.left, elem);
+            } else if(elem.compareTo(node.data) > 0) {
+                node.right = insert(node.right, elem);
+            }
+        }
+
+        return node;
+    }
+
+    public void inOrderTraversal(BSTNode node) {
+        if(node == null) {
+            return;
+        }
+        inOrderTraversal(node.left);
+        System.out.print(node.data + "->");
+        inOrderTraversal(node.right);
+
+    }
 }
