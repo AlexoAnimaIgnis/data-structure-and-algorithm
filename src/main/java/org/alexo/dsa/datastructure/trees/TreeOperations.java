@@ -1,5 +1,7 @@
 package org.alexo.dsa.datastructure.trees;
 
+import java.rmi.Remote;
+
 /**
  * to implement
  * 1. isEmpty()
@@ -78,5 +80,64 @@ public class TreeOperations<T extends Comparable<T>> {
         System.out.print(node.data + "->");
         inOrderTraversal(node.right);
 
+    }
+
+    public boolean deleteNode(BSTNode root, T elem) {
+        // identify first if the element is in the tree
+        if(contains(root,elem)) {
+            BSTNode node = delete(root, elem);
+            nodeCount--;
+            return true;
+        }
+        return false;
+    }
+
+    public BSTNode delete(BSTNode<T> node, T elem) {
+        if(node == null){
+            return null;
+        }
+
+        int compare = elem.compareTo(node.data);
+
+        // check first if value is in the left subtrees
+        if(compare < 0) {
+            node.left = delete(node.left, elem);
+        } else if(compare > 0) {
+            // check if value is in the right subtrees
+            node.right = delete(node.right, elem);
+        } else {
+
+            if(node.left == null) {
+                // case 1: case with only a right subtree or no subtree
+                return node.right;
+            } else if(node.right == null) {
+                // case 2: case with only a left subtree or no subtree
+                return node.left;
+            } else {
+                // when removing a node from a binary tree with two links the successor
+                // of the node being removed can either be the largest value in the left subtree
+                // or the smallest value of the right subtree
+                BSTNode<T> temp = findMin(node.right);
+
+                node.data = temp.data;
+
+                node.right = delete(node.right, temp.data);
+            }
+        }
+        return node;
+    }
+
+    private BSTNode<T> findMin(BSTNode<T> node) {
+        while(node.left != null) {
+            node = node.left;
+        }
+        return node;
+    }
+
+    private BSTNode<T> findMax(BSTNode<T> node) {
+        while(node.right != null) {
+            node = node.right;
+        }
+        return node;
     }
 }
